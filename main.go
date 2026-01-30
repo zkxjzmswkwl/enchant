@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 var enchantmentTableFont = map[rune]string{
@@ -32,14 +33,7 @@ func translateToEnchantmentFont(text string) string {
 
 func main() {
 	if len(os.Args) > 1 {
-		text := ""
-		for i, arg := range os.Args[1:] {
-			if i > 0 {
-				text += " "
-			}
-			text += arg
-		}
-		fmt.Println(translateToEnchantmentFont(text))
+		fmt.Println(translateToEnchantmentFont(strings.Join(os.Args[1:], " ")))
 		return
 	}
 
